@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CogitoController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ProductController;
@@ -24,7 +25,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete("/products/{product}", [ProductController::class, "destroy"])->name("product.destroy");
     Route::put("/products/{product}", [ProductController::class, "update"])->name('product.update');
     Route::get("/products/{product}/edit", [ProductController::class, "edit"])->name('product.edit');
+
 });
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
+require __DIR__.'/cogito.php';
+
